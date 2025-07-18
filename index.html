@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxe Beauty Aesthetics - Tu Santuario de Belleza y Bienestar</title>
+    <meta name="description" content="Descubre tratamientos estéticos de lujo y personalizados en Luxe Beauty Aesthetics. Faciales, masajes, depilación láser y más para tu piel y cuerpo.">
+    <link rel="icon" href="LOGO.jpg" type="image/x-icon">
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* Colores personalizados para Tailwind CSS (Extendemos la paleta si es necesario, o usamos estas clases directamente) */
+        :root {
+            --color-deep-black: #000000;
+            --color-creamy-white: #F2F2F2;
+            --color-old-gold: #A38B4B;
+            --color-dark-gray-warm: #363636;
+            --color-soft-taupe: #8F7D6B;
+            --color-bright-gold: #D4AF37;
+        }
+
+        /* Clases de utilidad para colores personalizados */
+        .bg-creamy-white { background-color: var(--color-creamy-white); }
+        .text-creamy-white { color: var(--color-creamy-white); }
+        .bg-deep-black { background-color: var(--color-deep-black); }
+        .text-deep-black { color: var(--color-deep-black); }
+        .text-old-gold { color: var(--color-old-gold); }
+        .bg-old-gold { background-color: var(--color-old-gold); }
+        .text-dark-gray-warm { color: var(--color-dark-gray-warm); }
+        .bg-dark-gray-warm { background-color: var(--color-dark-gray-warm); }
+        .bg-soft-taupe { background-color: var(--color-soft-taupe); }
+        .text-bright-gold { color: var(--color-bright-gold); }
+        .bg-bright-gold { background-color: var(--color-bright-gold); }
+        .border-old-gold { border-color: var(--color-old-gold); }
+
+        /* Estilos personalizados y de tipografía */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--color-dark-gray-warm);
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Estilos específicos para el carrusel de testimonios */
+        .testimonial-slide {
+            min-width: 100%; /* Asegura que cada slide ocupe el ancho completo */
+        }
+    </style>
+</head>
+<body class="bg-creamy-white text-dark-gray-warm">
+    <header class="bg-deep-black text-creamy-white py-4 shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto flex justify-between items-center px-4 md:px-8">
+            <div class="flex items-center">
+                <img src="LOGO.jpg" alt="Logo Luxe Beauty Aesthetics" class="h- w-36 mr-2">
+                <div class="logo text-2xl font-bold text-bright-gold">Luxe Beauty Aesthetics</div>
+            </div>
+            <ul class="hidden md:flex space-x-6 lg:space-x-8 items-center">
+                <li><a href="#servicios" class="hover:text-bright-gold transition duration-300">Servicios</a></li>
+                <li><a href="#about" class="hover:text-bright-gold transition duration-300">Sobre Nosotros</a></li>
+                <li><a href="#galeria" class="hover:text-bright-gold transition duration-300">Galería</a></li>
+                <li><a href="#contact" class="hover:text-bright-gold transition duration-300">Contacto</a></li>
+                <li><a href="#reservar" class="py-2 px-4 bg-old-gold text-deep-black rounded-full font-semibold hover:bg-bright-gold transition duration-300">Reservar Cita</a></li>
+            </ul>
+            <button class="md:hidden text-creamy-white text-2xl focus:outline-none" id="mobile-menu-button" aria-label="Abrir menú">
+                ☰
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-deep-black py-4">
+            <ul class="flex flex-col items-center space-y-4">
+                <li><a href="#servicios" class="text-creamy-white hover:text-bright-gold transition duration-300 py-2 block">Servicios</a></li>
+                <li><a href="#about" class="text-creamy-white hover:text-bright-gold transition duration-300 py-2 block">Sobre Nosotros</a></li>
+                <li><a href="#galeria" class="text-creamy-white hover:text-bright-gold transition duration-300 py-2 block">Galería</a></li>
+                <li><a href="#contact" class="text-creamy-white hover:text-bright-gold transition duration-300 py-2 block">Contacto</a></li>
+                <li><a href="#reservar" class="py-2 px-4 bg-old-gold text-deep-black rounded-full hover:bg-bright-gold transition duration-300 mt-2">Reservar Cita</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="relative h-screen flex items-center justify-center text-center bg-cover bg-center"
+        style="background-image: url('https://via.placeholder.com/1920x1080/363636/F2F2F2?text=Imagen+Hero+Luxe+Beauty+-+Elegancia+y+Bienestar');">
+        <div class="absolute inset-0 bg-dark-gray-warm opacity-50"></div>
+        <div class="relative z-10 p-8 max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-bright-gold mb-4 hero-title leading-tight">Luxe Beauty Aesthetics</h1>
+            <p class="text-xl md:text-2xl lg:text-3xl text-creamy-white mb-8 hero-subtitle leading-relaxed">Descubre tu Mejor Versión a Través del Cuidado y la Elegancia</p>
+            <a href="#servicios" class="inline-block py-3 px-8 bg-old-gold text-deep-black text-lg font-semibold rounded-full shadow-lg hover:bg-bright-gold transition duration-300 hero-cta">
+                Explorar Servicios
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="py-16 md:py-24 bg-creamy-white">
+        <div class="container mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            <div class="md:w-1/2 flex justify-center">
+                <img src="https://via.placeholder.com/800x600/8F7D6B/F2F2F2?text=Interior+Spa+Luxe+Beauty" alt="Interior del spa Luxe Beauty Aesthetics" class="rounded-lg shadow-xl about-image max-w-full h-auto">
+            </div>
+            <div class="md:w-1/2 text-dark-gray-warm about-text text-center md:text-left">
+                <h2 class="text-4xl lg:text-5xl font-bold text-old-gold mb-6">Un Santuario de Belleza y Bienestar</h2>
+                <p class="mb-4 text-lg lg:text-xl leading-relaxed">En Luxe Beauty Aesthetics, creemos que la verdadera belleza emana del bienestar interior y exterior. Nuestro santuario está diseñado para ofrecerte una experiencia transformadora, donde cada tratamiento es una celebración de tu individualidad y un paso hacia una versión más radiante de ti mismo.</p>
+                <p class="text-lg lg:text-xl leading-relaxed">Nos dedicamos a proporcionar servicios estéticos de vanguardia con un toque de lujo y atención personalizada, utilizando solo productos de la más alta calidad y las técnicas más innovadoras del mercado.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-soft-taupe">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+            <h2 class="text-4xl lg:text-5xl font-bold text-old-gold mb-12">¿Por Qué Elegir Luxe Beauty Aesthetics?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="p-6 rounded-lg shadow-xl bg-creamy-white flex flex-col items-center why-choose-card">
+                    <div class="w-16 h-16 bg-old-gold rounded-full flex items-center justify-center mb-4 transition duration-300 transform group-hover:scale-110">
+                        <svg class="w-8 h-8 text-deep-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-dark-gray-warm mb-2">Resultados Comprobados</h3>
+                    <p class="text-lg text-dark-gray-warm">Nuestros tratamientos están diseñados para ofrecer resultados visibles y duraderos, respaldados por la ciencia y la experiencia.</p>
+                </div>
+                <div class="p-6 rounded-lg shadow-xl bg-creamy-white flex flex-col items-center why-choose-card">
+                    <div class="w-16 h-16 bg-old-gold rounded-full flex items-center justify-center mb-4 transition duration-300 transform group-hover:scale-110">
+                        <svg class="w-8 h-8 text-deep-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-dark-gray-warm mb-2">Tratamientos Personalizados</h3>
+                    <p class="text-lg text-dark-gray-warm">Cada cliente es único. Ofrecemos consultas detalladas para personalizar cada tratamiento según tus necesidades y objetivos específicos.</p>
+                </div>
+                <div class="p-6 rounded-lg shadow-xl bg-creamy-white flex flex-col items-center why-choose-card">
+                    <div class="w-16 h-16 bg-old-gold rounded-full flex items-center justify-center mb-4 transition duration-300 transform group-hover:scale-110">
+                        <svg class="w-8 h-8 text-deep-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-dark-gray-warm mb-2">Ambiente de Lujo y Calma</h3>
+                    <p class="text-lg text-dark-gray-warm">Nuestro espacio ha sido diseñado meticulosamente para ofrecerte un santuario de calma y sofisticación, donde el lujo se encuentra con la relajación.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="py-16 md:py-24 bg-creamy-white">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+            <h2 class="text-4xl lg:text-5xl font-bold text-bright-gold mb-12">Nuestros Servicios Exclusivos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-creamy-white p-6 rounded-lg shadow-xl service-card border border-gray-200">
+                    <img src="https://via.placeholder.com/600x400/A38B4B/000000?text=Tratamientos+Faciales" alt="Tratamientos Faciales" class="rounded-md mb-4 object-cover w-full h-48">
+                    <h3 class="text-2xl font-semibold text-old-gold mb-2">Tratamientos Faciales</h3>
+                    <p class="text-dark-gray-warm mb-4">Renueva y rejuvenece tu piel con nuestros tratamientos faciales personalizados, adaptados a tus necesidades.</p>
+                    <a href="#contact" class="py-2 px-6 bg-old-gold text-deep-black rounded-full hover:bg-bright-gold transition duration-300">Más Información</a>
+                </div>
+                <div class="bg-creamy-white p-6 rounded-lg shadow-xl service-card border border-gray-200">
+                    <img src="https://via.placeholder.com/600x400/A38B4B/000000?text=Masajes+Relajantes" alt="Masajes Relajantes" class="rounded-md mb-4 object-cover w-full h-48">
+                    <h3 class="text-2xl font-semibold text-old-gold mb-2">Masajes Relajantes</h3>
+                    <p class="text-dark-gray-warm mb-4">Sumérgete en un estado de calma profunda con nuestros masajes terapéuticos, liberando tensiones.</p>
+                    <a href="#contact" class="py-2 px-6 bg-old-gold text-deep-black rounded-full hover:bg-bright-gold transition duration-300">Más Información</a>
+                </div>
+                <div class="bg-creamy-white p-6 rounded-lg shadow-xl service-card border border-gray-200">
+                    <img src="https://via.placeholder.com/600x400/A38B4B/000000?text=Depilacion+Laser" alt="Depilación Láser" class="rounded-md mb-4 object-cover w-full h-48">
+                    <h3 class="text-2xl font-semibold text-old-gold mb-2">Depilación Láser</h3>
+                    <p class="text-dark-gray-warm mb-4">Resultados duraderos y piel suave con nuestra tecnología de depilación láser de última generación.</p>
+                    <a href="#contact" class="py-2 px-6 bg-old-gold text-deep-black rounded-full hover:bg-bright-gold transition duration-300">Más Información</a>
+                </div>
+                <div class="bg-creamy-white p-6 rounded-lg shadow-xl service-card border border-gray-200">
+                    <img src="https://via.placeholder.com/600x400/A38B4B/000000?text=Tratamientos+Corporales" alt="Tratamientos Corporales" class="rounded-md mb-4 object-cover w-full h-48">
+                    <h3 class="text-2xl font-semibold text-old-gold mb-2">Tratamientos Corporales</h3>
+                    <p class="text-dark-gray-warm mb-4">Moldea y tonifica tu figura con nuestros tratamientos corporales especializados para cada necesidad.</p>
+                    <a href="#contact" class="py-2 px-6 bg-old-gold text-deep-black rounded-full hover:bg-bright-gold transition duration-300">Más Información</a>
+                </div>
+                <div class="bg-creamy-white p-6 rounded-lg shadow-xl service-card border border-gray-200">
+                    <img src="https://via.placeholder.com/600x400/A38B4B/000000?text=Manicure+y+Pedicure" alt="Manicure y Pedicure" class="rounded-md mb-4 object-cover w-full h-48">
+                    <h3 class="text-2xl font-semibold text-old-gold mb-2">Manicure y Pedicure</h3>
+                    <p class="text-dark-gray-warm mb-4">Embellece tus manos y pies con nuestros servicios de manicure y pedicure de lujo.</p>
+                    <a href="#contact" class="py-2 px-6 bg-old-gold text-deep-black rounded-full hover:bg-bright-gold transition duration-300">Más Información</a>
+                </div>
+                 <div class="bg-creamy-white p-6 rounded-lg shadow-xl service-card border border-gray-200">
+                    <img src="https://via.placeholder.com/600x400/A38B4B/000000?text=Extensiones+de+Pestañas" alt="Extensiones de Pestañas" class="rounded-md mb-4 object-cover w-full h-48">
+                    <h3 class="text-2xl font-semibold text-old-gold mb-2">Extensiones de Pestañas</h3>
+                    <p class="text-dark-gray-warm mb-4">Realza tu mirada con extensiones de pestañas que te darán un volumen y longitud espectaculares.</p>
+                    <a href="#contact" class="py-2 px-6 bg-old-gold text-deep-black rounded-full hover:bg-bright-gold transition duration-300">Más Información</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria" class="py-16 md:py-24 bg-dark-gray-warm">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+            <h2 class="text-4xl lg:text-5xl font-bold text-bright-gold mb-12 text-creamy-white">Nuestra Galería de Belleza</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <img src="https://via.placeholder.com/600x400/A38B4B/000000?text=Ambiente+1" alt="Ambiente Luxe Beauty 1" class="w-full h-auto object-cover rounded-lg shadow-lg gallery-item cursor-pointer transform hover:scale-105 transition duration-300">
+                <img src="https://via.placeholder.com/600x400/A38B4B/000000?text=Tratamiento+Facial+Real" alt="Tratamiento Facial Real" class="w-full h-auto object-cover rounded-lg shadow-lg gallery-item cursor-pointer transform hover:scale-105 transition duration-300">
+                <img src="https://via.placeholder.com/600x400/A38B4B/000000?text=Resultados+Piel" alt="Resultados Piel Radiante" class="w-full h-auto object-cover rounded-lg shadow-lg gallery-item cursor-pointer transform hover:scale-105 transition duration-300">
+                <img src="https://via.placeholder.com/600x400/A38B4B/000000?text=Area+Masaje" alt="Área de Masajes" class="w-full h-auto object-cover rounded-lg shadow-lg gallery-item cursor-pointer transform hover:scale-105 transition duration-300">
+                <img src="https://via.placeholder.com/600x400/A38B4B/000000?text=Producto+Premium" alt="Producto Premium" class="w-full h-auto object-cover rounded-lg shadow-lg gallery-item cursor-pointer transform hover:scale-105 transition duration-300">
+                <img src="https://via.placeholder.com/600x400/A38B4B/000000?text=Relax+Cliente" alt="Cliente Relajado" class="w-full h-auto object-cover rounded-lg shadow-lg gallery-item cursor-pointer transform hover:scale-105 transition duration-300">
+                <img src="https://via.placeholder.com/600x400/A38B4B/000000?text=Detalle+Decoracion" alt="Detalle Decoración Luxe" class="w-full h-auto object-cover rounded-lg shadow-lg gallery-item cursor-pointer transform hover:scale-105 transition duration-300">
+                <img src="https://via.placeholder.com/600x400/A38B4B/000000?text=Equipo+Profesional" alt="Equipo Profesional Luxe Beauty" class="w-full h-auto object-cover rounded-lg shadow-lg gallery-item cursor-pointer transform hover:scale-105 transition duration-300">
+            </div>
+            <div id="lightbox" class="fixed inset-0 bg-deep-black bg-opacity-90 flex items-center justify-center z-50 hidden" onclick="closeLightbox()">
+                <img id="lightbox-img" src="" alt="Imagen en grande" class="max-w-3xl max-h-4/5 rounded-lg shadow-xl">
+                <button class="absolute top-4 right-4 text-creamy-white text-4xl font-bold" onclick="closeLightbox()">&times;</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-soft-taupe">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+            <h2 class="text-4xl lg:text-5xl font-bold text-bright-gold mb-12">Lo Que Dicen Nuestros Clientes</h2>
+            <div class="relative w-full overflow-hidden testimonial-carousel">
+                <div class="flex transition-transform duration-500 ease-in-out" id="testimonial-track">
+                    <div class="testimonial-slide w-full flex-shrink-0 px-2 sm:px-6">
+                        <div class="bg-creamy-white p-6 md:p-8 rounded-lg shadow-xl text-left mx-auto max-w-2xl">
+                            <img src="https://via.placeholder.com/80/A38B4B/000000?text=%E2%80%9CQ%E2%80%9D" alt="Comillas" class="h-8 w-8 mb-4 text-old-gold opacity-75">
+                            <p class="text-lg md:text-xl text-dark-gray-warm mb-4 leading-relaxed">"Mi facial en Luxe Beauty Aesthetics fue una experiencia verdaderamente transformadora. Mi piel nunca se había sentido tan hidratada, luminosa y con un brillo natural. ¡La atención es impecable y el ambiente, pura relajación! Definitivamente se ha convertido en mi lugar favorito."</p>
+                            <p class="text-md md:text-lg font-semibold text-old-gold">- Ana Pérez, Cliente Fiel</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide w-full flex-shrink-0 px-2 sm:px-6">
+                        <div class="bg-creamy-white p-6 md:p-8 rounded-lg shadow-xl text-left mx-auto max-w-2xl">
+                            <img src="https://via.placeholder.com/80/A38B4B/000000?text=%E2%80%9CQ%E2%80%9D" alt="Comillas" class="h-8 w-8 mb-4 text-old-gold opacity-75">
+                            <p class="text-lg md:text-xl text-dark-gray-warm mb-4 leading-relaxed">"El masaje relajante que recibí aquí superó todas mis expectativas. Es un santuario de paz donde uno puede desconectar completamente. El personal es increíblemente profesional y atento a cada detalle. Un verdadero oasis de lujo en la ciudad."</p>
+                            <p class="text-md md:text-lg font-semibold text-old-gold">- Carlos López, Visitante Satisfecho</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide w-full flex-shrink-0 px-2 sm:px-6">
+                        <div class="bg-creamy-white p-6 md:p-8 rounded-lg shadow-xl text-left mx-auto max-w-2xl">
+                            <img src="https://via.placeholder.com/80/A38B4B/000000?text=%E2%80%9CQ%E2%80%9D" alt="Comillas" class="h-8 w-8 mb-4 text-old-gold opacity-75">
+                            <p class="text-lg md:text-xl text-dark-gray-warm mb-4 leading-relaxed">"Estoy fascinada con los resultados de la depilación láser. Es un proceso cómodo y efectivo, y las profesionales te hacen sentir muy segura. ¡La mejor inversión para mi piel, sin duda alguna! Recomendado al 100%."</p>
+                            <p class="text-md md:text-lg font-semibold text-old-gold">- Sofía Gómez, Cliente Feliz</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute top-1/2 -translate-y-1/2 w-full flex justify-between items-center px-4">
+                    <button class="bg-old-gold text-deep-black rounded-full p-3 hover:bg-bright-gold transition duration-300 shadow-md focus:outline-none" onclick="prevTestimonial()" aria-label="Testimonio Anterior">&#10094;</button>
+                    <button class="bg-old-gold text-deep-black rounded-full p-3 hover:bg-bright-gold transition duration-300 shadow-md focus:outline-none" onclick="nextTestimonial()" aria-label="Testimonio Siguiente">&#10095;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-creamy-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <h2 class="text-4xl lg:text-5xl font-bold text-bright-gold mb-12 text-center">Preguntas Frecuentes sobre Cuidado de la Piel</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="faq-group">
+                    <h3 class="text-2xl font-semibold text-old-gold mb-4">Faciales y Cuidado del Rostro</h3>
+                    <div class="mb-4 bg-creamy-white rounded-lg shadow-md p-2">
+                        <button class="w-full text-left py-3 px-4 rounded-md transition duration-300 faq-question font-medium text-dark-gray-warm focus:outline-none flex justify-between items-center" onclick="toggleAnswer('faq-facial-1')">
+                            ¿Con qué frecuencia debo hacerme un facial? <span class="text-old-gold text-xl">+</span>
+                        </button>
+                        <div id="faq-facial-1" class="hidden mt-2 p-4 bg-gray-100 rounded-md text-dark-gray-warm text-lg">
+                            La frecuencia ideal para un facial profesional suele ser **cada 4 a 6 semanas**. Esto se alinea con el ciclo de renovación celular de la piel, permitiendo mantenerla limpia, equilibrada y aprovechando al máximo los beneficios del tratamiento. Sin embargo, puede variar según tu tipo de piel, preocupaciones específicas y la recomendación de nuestros especialistas.
+                        </div>
+                    </div>
+                    <div class="mb-4 bg-creamy-white rounded-lg shadow-md p-2">
+                        <button class="w-full text-left py-3 px-4 rounded-md transition duration-300 faq-question font-medium text-dark-gray-warm focus:outline-none flex justify-between items-center" onclick="toggleAnswer('faq-facial-2')">
+                            ¿Qué beneficios tiene un facial profesional comparado con el cuidado en casa? <span class="text-old-gold text-xl">+</span>
+                        </button>
+                        <div id="faq-facial-2" class="hidden mt-2 p-4 bg-gray-100 rounded-md text-dark-gray-warm text-lg">
+                            Un facial profesional ofrece una **limpieza profunda que va más allá de lo que puedes lograr en casa**, extracciones seguras, exfoliación avanzada, masajes que estimulan la circulación y el drenaje linfático, y la aplicación de productos de grado profesional con altas concentraciones de ingredientes activos. Además, es una oportunidad para que un especialista evalúe tu piel y te brinde recomendaciones personalizadas.
+                        </div>
+                    </div>
+                    <div class="mb-4 bg-creamy-white rounded-lg shadow-md p-2">
+                        <button class="w-full text-left py-3 px-4 rounded-md transition duration-300 faq-question font-medium text-dark-gray-warm focus:outline-none flex justify-between items-center" onclick="toggleAnswer('faq-facial-3')">
+                            ¿Necesito alguna preparación especial antes de mi primer facial? <span class="text-old-gold text-xl">+</span>
+                        </button>
+                        <div id="faq-facial-3" class="hidden mt-2 p-4 bg-gray-100 rounded-md text-dark-gray-warm text-lg">
+                            Generalmente, no. Simplemente ven con tu piel limpia y libre de maquillaje si es posible. Informa a tu esteticista sobre cualquier medicamento que estés tomando, alergias o condiciones de la piel que puedas tener. Evita la exposición solar excesiva o tratamientos de peeling agresivos unos días antes.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-group">
+                    <h3 class="text-2xl font-semibold text-old-gold mb-4">Cuidado Corporal</h3>
+                    <div class="mb-4 bg-creamy-white rounded-lg shadow-md p-2">
+                        <button class="w-full text-left py-3 px-4 rounded-md transition duration-300 faq-question font-medium text-dark-gray-warm focus:outline-none flex justify-between items-center" onclick="toggleAnswer('faq-body-1')">
+                            ¿Cuáles son los beneficios de los tratamientos corporales como la exfoliación e hidratación? <span class="text-old-gold text-xl">+</span>
+                        </button>
+                        <div id="faq-body-1" class="hidden mt-2 p-4 bg-gray-100 rounded-md text-dark-gray-warm text-lg">
+                            Los tratamientos corporales como la exfoliación eliminan las células muertas, revelando una piel más suave, uniforme y luminosa. La hidratación profunda nutre la piel, mejora su elasticidad y combate la sequedad. En conjunto, estos tratamientos no solo mejoran la apariencia de la piel, sino que también promueven la relajación y el bienestar general.
+                        </div>
+                    </div>
+                    <div class="mb-4 bg-creamy-white rounded-lg shadow-md p-2">
+                        <button class="w-full text-left py-3 px-4 rounded-md transition duration-300 faq-question font-medium text-dark-gray-warm focus:outline-none flex justify-between items-center" onclick="toggleAnswer('faq-body-2')">
+                            ¿Los masajes corporales son solo para relajación o tienen otros beneficios? <span class="text-old-gold text-xl">+</span>
+                        </button>
+                        <div id="faq-body-2" class="hidden mt-2 p-4 bg-gray-100 rounded-md text-dark-gray-warm text-lg">
+                            Aunque la relajación es un beneficio clave, los masajes corporales ofrecen mucho más. Pueden **aliviar la tensión muscular, mejorar la circulación sanguínea y linfática, reducir el estrés, mejorar la calidad del sueño y promover la desintoxicación**. Dependiendo del tipo de masaje, también pueden ayudar en la recuperación muscular y reducir dolores específicos.
+                        </div>
+                    </div>
+                    <div class="mb-4 bg-creamy-white rounded-lg shadow-md p-2">
+                        <button class="w-full text-left py-3 px-4 rounded-md transition duration-300 faq-question font-medium text-dark-gray-warm focus:outline-none flex justify-between items-center" onclick="toggleAnswer('faq-body-3')">
+                            ¿Qué puedo hacer en casa para mantener los resultados de mis tratamientos corporales? <span class="text-old-gold text-xl">+</span>
+                        </button>
+                        <div id="faq-body-3" class="hidden mt-2 p-4 bg-gray-100 rounded-md text-dark-gray-warm text-lg">
+                            Para prolongar los beneficios, te recomendamos una rutina de cuidado en casa que incluya **exfoliación corporal suave 1-2 veces por semana y la aplicación diaria de una crema hidratante rica**. Mantenerte bien hidratado bebiendo suficiente agua y llevando una dieta equilibrada también contribuirá a la salud general de tu piel.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 md:py-24 bg-deep-black text-creamy-white">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+            <h2 class="text-4xl lg:text-5xl font-bold text-bright-gold mb-12">Contáctanos y Reserva Tu Experiencia</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <div class="bg-dark-gray-warm p-8 rounded-lg shadow-xl text-left contact-form-container">
+                    <h3 class="text-3xl font-semibold text-old-gold mb-6">Envíanos un Mensaje</h3>
+                    <form action="php/contact.php" method="POST" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-creamy-white text-lg font-medium mb-2">Nombre Completo</label>
+                            <input type="text" id="name" name="name" required class="w-full p-3 bg-gray-700 border border-gray-600 rounded-md text-creamy-white focus:outline-none focus:ring-2 focus:ring-old-gold">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-creamy-white text-lg font-medium mb-2">Correo Electrónico</label>
+                            <input type="email" id="email" name="email" required class="w-full p-3 bg-gray-700 border border-gray-600 rounded-md text-creamy-white focus:outline-none focus:ring-2 focus:ring-old-gold">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-creamy-white text-lg font-medium mb-2">Teléfono (Opcional)</label>
+                            <input type="tel" id="phone" name="phone" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-md text-creamy-white focus:outline-none focus:ring-2 focus:ring-old-gold">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-creamy-white text-lg font-medium mb-2">Tu Mensaje</label>
+                            <textarea id="message" name="message" rows="5" required class="w-full p-3 bg-gray-700 border border-gray-600 rounded-md text-creamy-white focus:outline-none focus:ring-2 focus:ring-old-gold"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3 px-6 bg-old-gold text-deep-black text-lg font-semibold rounded-full shadow-lg hover:bg-bright-gold transition duration-300 submit-button">
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+
+                <div class="space-y-8 text-center lg:text-left contact-info-map-container">
+                    <div>
+                        <h3 class="text-3xl font-semibold text-old-gold mb-4">Información de Contacto</h3>
+                        <p class="text-lg text-creamy-white mb-2"><span class="font-bold">Teléfono:</span> +58 212 555 1234</p>
+                        <p class="text-lg text-creamy-white mb-2"><span class="font-bold">Email:</span> info@luxebeautyaesthetics.com</p>
+                        <p class="text-lg text-creamy-white mb-2"><span class="font-bold">Dirección:</span> Av. Principal, Centro Comercial Elegance, Nivel PH, Caracas, Venezuela</p>
+                        <p class="text-lg text-creamy-white"><span class="font-bold">Horario:</span> Lun - Vie: 9:00 AM - 7:00 PM | Sáb: 10:00 AM - 5:00 PM</p>
+                    </div>
+                    <div id="reservar">
+                        <h3 class="text-3xl font-semibold text-old-gold mb-4">Reserva Tu Cita</h3>
+                        <p class="text-lg text-creamy-white mb-4">Haz clic abajo para agendar tu próxima experiencia de lujo con nosotros. ¡Te esperamos!</p>
+                        <a href="https://calendly.com/your-luxe-beauty-link" target="_blank" class="inline-block py-3 px-8 bg-bright-gold text-deep-black text-lg font-semibold rounded-full shadow-lg hover:bg-old-gold transition duration-300 booking-button">
+                            Reservar Ahora
+                        </a>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-semibold text-old-gold mb-4">Encuéntranos</h3>
+                        <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-xl">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.6599723528773!2d-66.90384878479708!3d10.48059379255285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c2a58b2e1f2b2d7%3A0x6a0a0a0a0a0a0a0a!2sCaracas%2C%20Distrito%20Capital%2C%20Venezuela!5e0!3m2!1ses!2sve!4m2!3m1!1s0x0%3A0x0!5e0!3m2!1ses!2sve!4m2!3m1!1s0x0%3A0x0"
+                                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-lg">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-deep-black text-creamy-white py-8">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+            <div class="logo text-2xl font-bold text-bright-gold mb-4">Luxe Beauty Aesthetics</div>
+            <p class="mb-4 text-md">&copy; 2025 Luxe Beauty Aesthetics. Todos los derechos reservados.</p>
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" class="text-creamy-white hover:text-bright-gold transition duration-300 text-md">Política de Privacidad</a>
+                <a href="#" class="text-creamy-white hover:text-bright-gold transition duration-300 text-md">Términos y Condiciones</a>
+            </div>
+            <div class="mt-4 flex justify-center space-x-6">
+                <a href="https://facebook.com/luxebeautyaesthetics" target="_blank" aria-label="Facebook" class="mx-2 text-creamy-white hover:text-bright-gold transition duration-300">
+                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V22H12c5.523 0 10-4.477 10-10z" clip-rule="evenodd" /></svg>
+                </a>
+                <a href="https://instagram.com/luxebeautyaesthetics" target="_blank" aria-label="Instagram" class="mx-2 text-creamy-white hover:text-bright-gold transition duration-300">
+                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 4c-2.71 0-3.056.01-4.122.06A4.025 4.025 0 004.06 7.878C4.01 8.944 4 9.29 4 12s.01 3.056.06 4.122A4.025 4.025 0 007.878 19.94c1.066.05 1.412.06 4.122.06s3.056-.01 4.122-.06A4.025 4.025 0 0019.94 16.122c.05-1.066.06-1.412.06-4.122s-.01-3.056-.06-4.122A4.025 4.025 0 0016.122 4.06C15.056 4.01 14.71 4 12 4zm0 2a6 6 0 100 12 6 6 0 000-12zm0 2.5a3.5 3.5 0 110 7 3.5 3.5 0 010-7zm5-1.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5z" clip-rule="evenodd" /></svg>
+                </a>
+                </div>
+        </div>
+    </footer>
+
+    <script>
+        // JS para menú móvil
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+            // Opcional: animación de entrada/salida para el menú móvil con GSAP
+            if (!mobileMenu.classList.contains('hidden')) {
+                gsap.from(mobileMenu, { duration: 0.3, y: -50, opacity: 0, ease: "power2.out" });
+            }
+        });
+
+        // JS para carrusel de testimonios
+        let testimonialIndex = 0;
+        const testimonials = document.querySelectorAll('.testimonial-slide');
+        const track = document.getElementById('testimonial-track');
+        let testimonialWidth; // Se calculará en resize/load
+
+        function setTestimonialWidth() {
+            if (testimonials.length > 0) {
+                testimonialWidth = testimonials[0].offsetWidth; // Obtener el ancho de un slide
+                updateTestimonialPosition(); // Ajustar la posición al cambiar el tamaño
+            }
+        }
+
+        function updateTestimonialPosition() {
+            gsap.to(track, {
+                x: -testimonialIndex * testimonialWidth,
+                duration: 0.5,
+                ease: "power2.out"
+            });
+        }
+
+        function nextTestimonial() {
+            testimonialIndex = (testimonialIndex + 1) % testimonials.length;
+            updateTestimonialPosition();
+        }
+
+        function prevTestimonial() {
+            testimonialIndex = (testimonialIndex - 1 + testimonials.length) % testimonials.length;
+            updateTestimonialPosition();
+        }
+
+        // Autoplay del carrusel (opcional)
+        let testimonialInterval = setInterval(nextTestimonial, 7000); // Cambiar cada 7 segundos
+
+        // Pausar autoplay al interactuar con botones
+        document.querySelector('.testimonial-carousel button:first-of-type').addEventListener('click', () => {
+            clearInterval(testimonialInterval);
+            testimonialInterval = setInterval(nextTestimonial, 7000);
+        });
+        document.querySelector('.testimonial-carousel button:last-of-type').addEventListener('click', () => {
+            clearInterval(testimonialInterval);
+            testimonialInterval = setInterval(nextTestimonial, 7000);
+        });
+
+        // Event listener para redimensionar la ventana y recalcular ancho del testimonio
+        window.addEventListener('resize', setTestimonialWidth);
+        window.addEventListener('load', setTestimonialWidth); // Asegurarse de que se calcula al cargar
+
+        // JS para mostrar/ocultar respuestas del FAQ
+        function toggleAnswer(id) {
+            const answer = document.getElementById(id);
+            const button = answer.previousElementSibling; // El botón es el elemento anterior
+            const plusIcon = button.querySelector('span'); // El span con el '+'
+
+            if (answer.classList.contains('hidden')) {
+                gsap.to(answer, { height: 'auto', opacity: 1, duration: 0.3, ease: "power2.out", onComplete: () => answer.classList.remove('hidden') });
+                plusIcon.textContent = '-';
+            } else {
+                gsap.to(answer, { height: 0, opacity: 0, duration: 0.3, ease: "power2.out", onComplete: () => answer.classList.add('hidden') });
+                plusIcon.textContent = '+';
+            }
+        }
+
+        // GSAP Animaciones
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animación Hero Section
+        gsap.from(".hero-title", { duration: 1.2, y: 50, opacity: 0, ease: "power3.out" });
+        gsap.from(".hero-subtitle", { duration: 1.2, y: 50, opacity: 0, delay: 0.3, ease: "power3.out" });
+        gsap.from(".hero-cta", { duration: 1.2, y: 50, opacity: 0, delay: 0.6, ease: "power3.out" });
+
+        // Animación "Acerca de"
+        gsap.from(".about-image", {
+            scrollTrigger: {
+                trigger: ".about-image",
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+            },
+            x: -100,
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out"
+        });
+        gsap.from(".about-text", {
+            scrollTrigger: {
+                trigger: ".about-text",
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+            },
+            x: 100,
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out"
+        });
+
+        // Animación sección "Por Qué Elegirnos"
+        gsap.utils.toArray(".why-choose-card").forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 80%",
+                    toggleActions: "play none none reverse"
+                },
+                opacity: 0,
+                y: 50,
+                duration: 0.7,
+                delay: i * 0.2,
+                ease: "power2.out"
+            });
+            // Efecto hover para la tarjeta
+            card.addEventListener('mouseenter', () => {
+                gsap.to(card, { scale: 1.03, boxShadow: '0 15px 25px rgba(0,0,0,0.15)', duration: 0.3, ease: "power2.out" });
+                gsap.to(card.querySelector('svg'), { scale: 1.1, color: 'var(--color-bright-gold)', duration: 0.3, ease: "power2.out" });
+            });
+            card.addEventListener('mouseleave', () => {
+                gsap.to(card, { scale: 1, boxShadow: '0 10px 15px rgba(0,0,0,0.1)', duration: 0.3, ease: "power2.out" });
+                gsap.to(card.querySelector('svg'), { scale: 1, color: 'var(--color-deep-black)', duration: 0.3, ease: "power2.out" });
+            });
+        });
+
+
+        // Animación de tarjetas de servicio
+        gsap.utils.toArray(".service-card").forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse"
+                },
+                opacity: 0,
+                y: 50,
+                duration: 0.8,
+                delay: i * 0.1,
+                ease: "power2.out"
+            });
+            // Efecto hover
+            card.addEventListener('mouseenter', () => {
+                gsap.to(card, { scale: 1.03, boxShadow: '0 10px 15px rgba(0,0,0,0.1)', duration: 0.3, ease: "power2.out" });
+            });
+            card.addEventListener('mouseleave', () => {
+                gsap.to(card, { scale: 1, boxShadow: '0 4px 6px rgba(0,0,0,0.1)', duration: 0.3, ease: "power2.out" });
+            });
+        });
+
+        // Animación de la Galería
+        gsap.utils.toArray(".gallery-item").forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse"
+                },
+                opacity: 0,
+                scale: 0.8,
+                duration: 0.6,
+                delay: i * 0.05,
+                ease: "back.out(1.7)"
+            });
+        });
+
+        // Animación sección "Lo Que Dicen Nuestros Clientes" (carrusel ya tiene animación de transición)
+        gsap.from(".testimonial-carousel", {
+            scrollTrigger: {
+                trigger: ".testimonial-carousel",
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+            },
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            ease: "power2.out"
+        });
+
+        // Animación sección "Preguntas Frecuentes"
+        gsap.utils.toArray(".faq-group").forEach((group, i) => {
+            gsap.from(group, {
+                scrollTrigger: {
+                    trigger: group,
+                    start: "top 80%",
+                    toggleActions: "play none none reverse"
+                },
+                opacity: 0,
+                y: 50,
+                duration: 0.7,
+                delay: i * 0.3,
+                ease: "power2.out"
+            });
+        });
+
+        // Animación para el formulario de contacto y mapa
+        gsap.from(".contact-form-container", {
+            scrollTrigger: {
+                trigger: ".contact-form-container",
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+            },
+            x: -100,
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out"
+        });
+        gsap.from(".contact-info-map-container", {
+            scrollTrigger: {
+                trigger: ".contact-info-map-container",
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+            },
+            x: 100,
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out"
+        });
+
+        // Lightbox para la galería
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                lightbox.classList.remove('hidden');
+                lightboxImg.src = item.src;
+                gsap.from(lightboxImg, { scale: 0.8, opacity: 0, duration: 0.3, ease: "back.out(1.7)" });
+            });
+        });
+
+        function closeLightbox() {
+            gsap.to(lightboxImg, { scale: 0.8, opacity: 0, duration: 0.2, ease: "power2.in", onComplete: () => {
+                lightbox.classList.add('hidden');
+            }});
+        }
+
+    </script>
+</body>
+</html>
